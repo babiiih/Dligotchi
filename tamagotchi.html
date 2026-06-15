@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="description" content="Dlicom Pet - SocialFi Tamagotchi Game">
+    <title>Dlicom Pet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+</head>
+<body>
+    <div class="device">
+        <div class="screen">
+            <div class="screen-inner">
+
+                <!-- Header -->
+                <div class="game-header">
+                    <div class="game-header-left">
+                        <img class="dlicom-logo" src="logo.jpg" alt="Dlicom">
+                        <span>Dlicom Pet</span>
+                    </div>
+                    <div class="game-header-right">
+                        <div class="live-indicator" id="live-indicator">
+                            <span class="live-dot"></span>
+                            <span id="status-label">Active</span>
+                        </div>
+                        <span class="age-badge">AGE: <span id="age">0</span></span>
+                    </div>
+                </div>
+
+                <!-- Role Badge -->
+                <div class="role-badge" id="role-badge">NEWCOMER</div>
+
+                <!-- DLI Display -->
+                <div class="dli-display">
+                    <span class="dli-icon">$</span>
+                    <span><span id="dli-amount">0</span> DLI</span>
+                </div>
+
+                <!-- Notification -->
+                <div class="notification" id="notification"></div>
+
+                <!-- Pet -->
+                <div class="pet-container">
+                    <div class="pet bounce" id="pet">
+                        <img id="pet-img" src="characters/dlicom-mascot.png" alt="Dlicom Pet">
+                    </div>
+                    <div class="sleep-zz" id="sleep-zz">
+                        <span class="z">z</span>
+                        <span class="z">z</span>
+                        <span class="z">z</span>
+                    </div>
+                </div>
+
+                <!-- Hatch Hint -->
+                <div class="hatch-hint" id="hatch-hint">Tap any button to start!</div>
+
+                <!-- Poops -->
+                <div class="poops-area" id="poops-area"></div>
+
+                <!-- Message -->
+                <div class="message" id="message"></div>
+
+                <!-- Status Bars -->
+                <div class="status-bars">
+                    <div class="bar-row">
+                        <span class="bar-icon">&#10084;</span>
+                        <span class="bar-label">HP</span>
+                        <div class="bar-bg"><div class="bar-fill hp" id="bar-hp" style="width:100%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-icon">&#127836;</span>
+                        <span class="bar-label">FOOD</span>
+                        <div class="bar-bg"><div class="bar-fill food" id="bar-food" style="width:100%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-icon">&#9889;</span>
+                        <span class="bar-label">NRG</span>
+                        <div class="bar-bg"><div class="bar-fill nrg" id="bar-nrg" style="width:100%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-icon">&#128522;</span>
+                        <span class="bar-label">HAPPY</span>
+                        <div class="bar-bg"><div class="bar-fill happy" id="bar-happy" style="width:100%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Game Over -->
+                <div class="game-over-overlay" id="gameover">
+                    <div class="skull">&#128128;</div>
+                    <h2>GAME OVER</h2>
+                    <p id="death-msg">Your pet has left forever...</p>
+                    <button class="restart-btn" onclick="restart()">PLAY AGAIN</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Character Selector -->
+        <div class="character-selector">
+            <span class="selector-label">Pet</span>
+            <div class="character-list" id="character-list"></div>
+            <button class="add-char-btn" id="add-char-btn">+</button>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn" id="btn-eat" onclick="doAction('eat')">
+                <span class="btn-icon">&#127836;</span><span>Feed</span>
+            </button>
+            <button class="btn" id="btn-drink" onclick="doAction('drink')">
+                <span class="btn-icon">&#128167;</span><span>Drink</span>
+            </button>
+            <button class="btn" id="btn-play" onclick="doAction('play')">
+                <span class="btn-icon">&#9917;</span><span>Play</span>
+            </button>
+            <button class="btn" id="btn-sleep" onclick="doAction('sleep')">
+                <span class="btn-icon">&#128564;</span><span>Sleep</span>
+            </button>
+            <button class="btn" id="btn-bath" onclick="doAction('bath')">
+                <span class="btn-icon">&#129526;</span><span>Clean</span>
+            </button>
+            <button class="btn" id="btn-tip" onclick="doAction('tip')">
+                <span class="btn-icon">&#128176;</span><span>Tip</span>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="branding-footer">
+            <img class="dli-mini" src="logo.jpg" alt="D">
+            <span>Powered by $DLI on Base</span>
+        </div>
+    </div>
+
+    <input type="file" id="file-input" accept="image/*" style="display:none" multiple>
+    <script src="script.js"></script>
+</body>
+</html>
